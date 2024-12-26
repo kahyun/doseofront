@@ -1,0 +1,29 @@
+
+     /* Topbar 스타일 */
+ .topbar {
+     background-color: #343a40;
+     color: #ffffff;
+     padding: 10px 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     position: fixed; /* 상단바 고정 */
+     top: 0;
+     left: 0;
+     width: 100%;
+     z-index: 1000; /* 다른 요소 위에 표시 */
+ }
+.topbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.topbar .login-btn {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+.topbar .login-btn:hover {
+    background-color: #ffffff;
+    color: #343a40;
+    border: 1px solid #ffffff;
+}

@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+.main-content {
+    margin-left: 250px; /* sidebar 너비만큼 여백 */
+    margin-top: 60px; /* topbar 높이만큼 여백 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 60px); /* 화면 높이에 맞추기 */
+    box-sizing: border-box;
+}
+
+.book-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.book-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.book-item:last-child {
+    border-bottom: none;
+}
+
+.book-image img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.booklist {
+    margin-left: 20px;
+    flex-grow: 1;
+    color:black;
+}
+
+/*.book-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-info {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+.book-registant {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}*/
+
+
+.book-rating {
+    font-size: 14px;
+    color: #5bc0de;
+    margin-bottom: 15px;
+}
+
+.book-buttons button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cart-button {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: #fff;
+}

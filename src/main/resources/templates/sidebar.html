@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div th:fragment="sidebar" class="sidebar">
+        <h3>ALL CATEGORY</h3>
+        <nav class="nav flex-column">
+            <a href="#" class="nav-link active"><i class="fas fa-book"></i> 도서</a>
+            <a href="#" class="nav-link"><i class="fas fa-tasks"></i> 도서정리용품</a>
+            <a href="#" class="nav-link"><i class="fas fa-shield-alt"></i> 도서 보호&보수용품</a>
+            <a href="#" class="nav-link"><i class="fas fa-exchange-alt"></i> 대출용품</a>
+            <a href="#" class="nav-link"><i class="fas fa-barcode"></i> 바코드용품</a>
+        </nav>
+    </div>
+</body>
+</html>
