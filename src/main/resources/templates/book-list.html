@@ -2,45 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
   <link rel="stylesheet" th:href="@{/css/booklist.css}">
-  <script src="/js/booklist.js"></script>
 
 </head>
 <body>
   <!-- booklist fragment 정의 -->
   <div th:fragment="book-list">
     <div class="book-list">
-      <!--도서 검색-->
-<!--
-      <form th:action="@{/book/list}" th:method="get" class="filter-form">
-        <div>
-          <select id="tag" name="tag" class="input-select">
-            <option th:value="name">도서명</option>
-            <option th:value="writer">작가명</option>
-            <option th:value="registant">등록자</option>
-          </select>
-          <input type="text" name="search" />
-          <button type="submit" class="btn">조회</button>
-        </div>
 
-      </form>
--->
       <!-- 타임리프를 사용한 도서 리스트 반복 -->
-      <div class="book-item">
-        <!-- 도서 이미지 -->
-<!--        <div class="book-image">
-          <img th:src="${book.image}" th:alt="${book.name}" />
-        </div>-->
-
+<!--      <div class="book-item">-->
         <!-- 도서 리스트 -->
         <div class="booklist" id="booklist"></div>
 
-
           <!-- 구매 버튼 -->
-          <div class="book-buttons">
-            <button class="cart-button">장바구니</button>
-            <button class="buy-button">바로구매</button>
+<!--          <div class="book-buttons">
+            <button class="cart-button">대여하기</button>
           </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </body>

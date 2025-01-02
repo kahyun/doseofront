@@ -25,8 +25,14 @@ body {
 }
 
 .book-item {
-    display: flex;
+    /*display: flex;
     align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;*/
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 버튼을 오른쪽 끝으로 */
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
@@ -47,23 +53,6 @@ body {
     flex-grow: 1;
     color:black;
 }
-
-/*.book-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.book-info {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-}
-.book-registant {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-}*/
 
 
 .book-rating {
@@ -89,3 +78,9 @@ body {
     background-color: #007bff;
     color: #fff;
 }
+
+.book-info {
+    flex-grow: 1; /* 정보 영역 넓히기 */
+}
+
+

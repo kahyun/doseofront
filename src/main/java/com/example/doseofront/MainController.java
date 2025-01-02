@@ -13,14 +13,14 @@ public class MainController {
 //    public String mainPage(){
 //        return "main";
 //    }
-    @GetMapping("/login")
+/*    @GetMapping("/login")
     public String loginPage() {
         return "login";
     }
     @GetMapping("/signup")
     public String signupPage() {
         return "signup";
-    }
+    }*/
 /*    @GetMapping("/register")
     public String insertPage() {
         return "book-insert";

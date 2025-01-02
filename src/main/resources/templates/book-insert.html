@@ -15,7 +15,7 @@
                 let data = {
                     name:$("#bookName").val(),
                     writer:$("#writer").val(),
-                    registant:$("#registrantName").val()
+                    registrant:$("#registrantName").val()
 
                 }
                 console.log(data);
@@ -35,9 +35,6 @@
                     }
                 }).fail(function (error){ //오류
                     alert(JSON.stringfy(error));
-                }).always(function (){//응답결과에 상관없이 항상 실행되는 코드
-                    console.log("응답결과에 상관없이 항상 실행되는 코드");
-
                 })
             })
         });
@@ -46,7 +43,7 @@
 <body>
     <div class="container">
         <h1>도서 등록</h1>
-        <form action="/book/insert" method="POST" enctype="multipart/form-data">
+        <form>
             <div class="form-group">
                 <label for="bookName" class="form-label">도서명</label>
                 <input type="text" id="bookName" name="bookName" class="form-control" required>
