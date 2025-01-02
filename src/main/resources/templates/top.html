@@ -9,11 +9,13 @@
     <div th:fragment="topbar1">
         <nav class="topbar">
             <div>
-                <a href="/doseo/main" class="nav-link">🏠 홈</a>
+                <a th:href="@{/book/list}" class="nav-link">🏠 홈</a>
             </div>
             <div class="logo" th:text="'도서 관리 시스템'">도서 관리 시스템</div>
+            <!--현재는 로그인 하기 전 th:if사용하여-->
+            <!--로그인 한 후 현재 자리에 '나의 대여 기록' 버튼 만들기  => 버튼 누르면 나의 대여 기록 페이지로 이동(/rent/list)-->
             <div>
-                <a href="/doseo/login" class="btn login-btn">로그인</a>
+                <a th:href="@{/user/login}" class="btn login-btn">로그인</a>
             </div>
         </nav>
     </div>
