@@ -18,6 +18,8 @@ $(document).ready(function(){
                     </div>
                     <div class="book-buttons">
                         <button class="cart-button">대여하기</button>
+                        <!--대여하기 버튼을 누르면 리슽트에서 안보이게 하기?-->
+                        <!--그러고 반납을 하고 싶으면 나의 대여 기록가서 반납하기 버튼 누르기?-->
                     </div>
                 </div>
 `);
