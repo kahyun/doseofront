@@ -29,10 +29,10 @@
                     dataType:"json"
                 }).done(function (result){//성공했을때 실행되는 함수 - result는 서버에서 받아온 데이터
                     if (result.status==500){
-                        alert("도서 등록 실패");
+                        alert("회원가입에 실패했습니다.");
                     }else{
                         alert("도서 등록 완료.");
-                        location.href = "/book/list";//도서등록 후 메인페이지로 이동
+                        location.href = "/book/list";//회원가입 후 메인페이지로 이동
                     }
                 }).fail(function (error){ //오류
                     alert(JSON.stringfy(error));
