@@ -30,11 +30,48 @@
         <div class="d-grid">
           <button type="submit" class="btn btn-login">로그인</button>
         </div>
+        <button id="loginbtn" class="btn btn-lg btn-primary btn-block"  type="button"> 로그인 </button>
+        <div class="error-message" th:if="${loginError}">
+          <span> 아이디나 패스워드가 올바르지 않습니다. </span>
+        </div>
       </form>
       <div class="text-center mt-3">
         <small>계정이 없으신가요? <a th:href="@{/user/signup}">회원가입</a></small>
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    //1.로그인 후에 응답헤더에 토큰이 전달되는지 확인
+    let login_func = function (){
+      let data = {
+        username:$("#username").val(),
+        password:$("#password").val()
+      }
+      $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:6060/doseo/login",
+        data: data,//json으로 넘기지 않으려고 변환하지 않음
+        dataType:"json"
+      }).done(function (responsedata,msg, responseval){
+        console.log(JSON.stringify(responsedata));
+        console.log(JSON.stringify(msg));
+        console.log(JSON.stringify(responseval));
+        console.log(responseval.status);
+        console.log(responseval.getResponseHeader("Authorization"))
+        console.log(responseval.getResponseHeader("userId"))
+        let accessToken = responseval.getResponseHeader("Authorization");
+        //토큰이 있으면 토큰을 logcalStorage에 저장
+        localStorage.setItem("auth-token",accessToken);
+        location.href="/doseo/main"
+      }).fail(function (error){
+        console.log(JSON.stringify(error));
+        location.href="/doseo/login"
+      })
+    }
+    document.querySelector("#loginbtn").addEventListener("click",function (){
+      alert("로그인요청");
+      login_func()
+    })
+  </script>
 </body>
 </html>
