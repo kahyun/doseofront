@@ -27,9 +27,6 @@
           <label for="password" class="form-label">비밀번호</label>
           <input type="password" id="password" name="password" class="form-control" placeholder="비밀번호를 입력하세요" required>
         </div>
-        <div class="d-grid">
-          <button type="submit" class="btn btn-login">로그인</button>
-        </div>
         <button id="loginbtn" class="btn btn-lg btn-primary btn-block"  type="button"> 로그인 </button>
         <div class="error-message" th:if="${loginError}">
           <span> 아이디나 패스워드가 올바르지 않습니다. </span>
@@ -40,6 +37,7 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript">
     //1.로그인 후에 응답헤더에 토큰이 전달되는지 확인
     let login_func = function (){
@@ -49,7 +47,7 @@
       }
       $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:6060/doseo/login",
+        url: "http://127.0.0.1:7070/user/login",
         data: data,//json으로 넘기지 않으려고 변환하지 않음
         dataType:"json"
       }).done(function (responsedata,msg, responseval){
@@ -58,20 +56,26 @@
         console.log(JSON.stringify(responseval));
         console.log(responseval.status);
         console.log(responseval.getResponseHeader("Authorization"))
-        console.log(responseval.getResponseHeader("userId"))
+        console.log(responseval.getResponseHeader("userName"))
         let accessToken = responseval.getResponseHeader("Authorization");
         //토큰이 있으면 토큰을 logcalStorage에 저장
+        if (accessToken){
         localStorage.setItem("auth-token",accessToken);
-        location.href="/doseo/main"
-      }).fail(function (error){
-        console.log(JSON.stringify(error));
-        location.href="/doseo/login"
-      })
-    }
+        alert("로그인 성공! 메인 페이지로 이동합니다.");
+        location.href="/book/list"
+      } else {
+        alert("로그인 실패: 토큰이 없습니다.");
+          }
+       }).fail(function (error) {
+      console.error("에러 발생:", error);
+      alert("로그인 실패: 서버와 통신하지 못했습니다.");
+        location.href="/user/login"
+      });
+    };
     document.querySelector("#loginbtn").addEventListener("click",function (){
       alert("로그인요청");
-      login_func()
-    })
+      login_func();
+    });
   </script>
 </body>
 </html>

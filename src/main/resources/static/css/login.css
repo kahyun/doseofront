@@ -41,7 +41,7 @@ body {
 }
 
 /* 버튼 스타일 */
-.btn-login {
+.btn-lg {
     background-color: #495057;
     border: none;
     color: #ffffff;
@@ -52,7 +52,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-login:hover {
+.btn-lg:hover {
     background-color: #343a40;
     color: #ffffff;
     transform: translateY(-2px);

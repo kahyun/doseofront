@@ -15,9 +15,47 @@
             <!--현재는 로그인 하기 전 th:if사용하여-->
             <!--로그인 한 후 현재 자리에 '나의 대여 기록' 버튼 만들기  => 버튼 누르면 나의 대여 기록 페이지로 이동(/rent/list)-->
             <div>
-                <a th:href="@{/user/login}" class="btn login-btn">로그인</a>
-            </div>
+                <div id="auth-section">
+                    <!-- 여기에 동적으로 로그인/로그아웃 버튼과 사용자명을 추가합니다. -->
+                </div>
         </nav>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            const token = localStorage.getItem("auth-token");
+
+            if (token) {
+                // JWT 토큰을 사용해 사용자 이름 가져오기
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:7070/user/info", // 사용자 정보를 반환하는 API
+                    headers: {
+                        "Authorization": token
+                    }
+                }).done(function (response) {
+                    // 사용자 이름 표시 및 로그아웃 버튼 생성
+                    const username = decodeURIComponent(response.username); // URL 디코딩
+                    $("#auth-section").html(`
+                        <span>${username}님</span>
+                        <button id="logout-btn" class="btn logout-btn">로그아웃</button>
+                    `);
+
+                    // 로그아웃 버튼 이벤트
+                    $("#logout-btn").click(function () {
+                        localStorage.removeItem("auth-token"); // 토큰 삭제
+                        location.reload(); // 페이지 새로고침
+                    });
+                }).fail(function () {
+                    // 토큰이 유효하지 않을 경우
+                    localStorage.removeItem("auth-token");
+                    $("#auth-section").html('<a href="/user/login" class="btn login-btn">로그인</a>');
+                });
+            } else {
+                // 로그아웃 상태: 로그인 버튼 표시
+                $("#auth-section").html('<a href="/user/login" class="btn login-btn">로그인</a>');
+            }
+        });
+    </script>
 </body>
 </html>
