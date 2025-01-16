@@ -1,6 +1,7 @@
 package com.example.doseofront.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -11,8 +12,16 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/book/insert").setViewName("book-insert");
         registry.addViewController("/book/list").setViewName("main");
-        registry.addViewController("/user/login").setViewName("login");
         registry.addViewController("/user/signup").setViewName("signup");
         registry.addViewController("/rent/list").setViewName("rent-list");
+    }
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://127.0.0.1:6060")
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedHeaders("*")
+                .exposedHeaders("Authorization", "userName")
+                .allowCredentials(true);
     }
 }
